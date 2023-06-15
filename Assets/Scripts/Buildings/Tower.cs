@@ -9,6 +9,14 @@ public class Tower : Buildings
     
     private List<GameObject> playerMinionsList;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<ColoredCells>() != null)
+        {
+            other.GetComponent<ColoredCells>().SetField("Active");
+        }
+    }
+
     public void CreateUnit()
     {
         Vector3 rndPos = new Vector3 (Random.Range(-1, 1), 0, Random.Range(-1, 1));

@@ -25,6 +25,7 @@ public class ColoredCells : MonoBehaviour
     private void Awake()
     {
         ui_FindClass = new UI_FindClass();
+        SetField("Disabled");
     }
 
     private void ColorChangeOnAwake()
