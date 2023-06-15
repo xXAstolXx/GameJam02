@@ -12,9 +12,12 @@ public class PlayerScript : MonoBehaviour
     private InputAction rightclick;
     private InputAction mousePos;
 
+    private UI_FindClass ui_FindClass;
+
 
     private void Awake()
     {
+        ui_FindClass = new UI_FindClass();
         m_camera = Camera.main;
         mouseBinds = new MouseBindings();
         leftclick =  mouseBinds.Mouse.LeftClick;
@@ -55,6 +58,12 @@ public class PlayerScript : MonoBehaviour
                     hit.collider.GetComponent<ColoredCells>().OnClick();
                 }
             }
+
+        }
+
+        if (rightclick.WasPerformedThisFrame() == true)
+        {
+            ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(false);
         }
     }
 }

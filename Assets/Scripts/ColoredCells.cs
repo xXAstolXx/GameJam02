@@ -2,18 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Color
+public enum MaterialColor
 {
-    RED, GREEN, BLUE
+    RED = 0, 
+    GREEN = 10, 
+    BLUE = 20
 }
 public class ColoredCells : MonoBehaviour
 {
     [SerializeField]
     private Material[] materials;
 
-    [SerializeField]
-    private Color[] colors;
+    public MaterialColor materialColor;
 
+    private UI_FindClass ui_FindClass;
+
+    private void Awake()
+    {
+        ColorChangeOnAwake();
+        ui_FindClass = new UI_FindClass();
+    }
+
+    private void ColorChangeOnAwake()
+    {
+        if (materialColor == MaterialColor.RED)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = materials[0];
+
+        }
+
+        if (materialColor == MaterialColor.GREEN)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = materials[1];
+        }
+
+        if (materialColor == MaterialColor.BLUE)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = materials[2];
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +55,7 @@ public class ColoredCells : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Hit");
+        Debug.Log(materialColor);
+        ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(true);
     }
 }
