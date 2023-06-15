@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6325020144827889858}
   - component: {fileID: 3607268447476393301}
   - component: {fileID: 4227462770840788028}
+  - component: {fileID: 8190505550735134882}
   m_Layer: 0
   m_Name: ColoredCell
-  m_TagString: Untagged
+  m_TagString: ColloredCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +103,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -127,6 +128,33 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c70584db3dcb61042b0af1e1a5283fd8, type: 2}
   - {fileID: 2100000, guid: 8f04f9039e846e24c94478429abeb161, type: 2}
   materialColor: 10
+--- !u!54 &8190505550735134882
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172503224088627593}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2307866477011610903
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +199,7 @@ GameObject:
   - component: {fileID: 4879373075427289283}
   - component: {fileID: 3570251821311356390}
   - component: {fileID: 8405827168751564257}
+  - component: {fileID: 2502209333726406809}
   m_Layer: 0
   m_Name: DepletionBar
   m_TagString: Untagged
@@ -273,9 +302,22 @@ Animation:
   m_GameObject: {fileID: 7382014086299494316}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: c811ee5f32ab7a245a1fb36a26da5735, type: 2}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: fe1ca906dbbc6d942ab47443848292e5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: fe1ca906dbbc6d942ab47443848292e5, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &2502209333726406809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382014086299494316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3aa2afe91d2e5c44b6d1a436d9d2410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
