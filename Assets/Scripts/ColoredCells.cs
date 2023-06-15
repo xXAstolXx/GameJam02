@@ -7,7 +7,9 @@ public enum MaterialColor
 {
     RED = 0, 
     GREEN = 10, 
-    BLUE = 20
+    BLUE = 20,
+    GREY = 30,
+    BLACK = 40
 }
 public class ColoredCells : MonoBehaviour
 {
@@ -18,9 +20,10 @@ public class ColoredCells : MonoBehaviour
 
     private UI_FindClass ui_FindClass;
 
+    private string fieldState;
+
     private void Awake()
     {
-        ColorChangeOnAwake();
         ui_FindClass = new UI_FindClass();
     }
 
@@ -41,23 +44,52 @@ public class ColoredCells : MonoBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().material = materials[2];
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+        if (materialColor == MaterialColor.GREY)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = materials[3];
+        }
+
+        if (materialColor == MaterialColor.BLACK)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = materials[4];
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetField(string state)
     {
+        fieldState = state;
 
+        if (fieldState == "Active")
+        {
+            ColorChangeOnAwake();
+        }
+
+        if (fieldState == "Depleted")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = materials[3];
+        }
+
+        if (fieldState == "Disabled")
+        {
+            gameObject.GetComponent<MeshRenderer>().material = materials[4];
+        }
+
+        if (fieldState == "Resource")
+        {
+            GetComponentInChildren<DepletionBar>().StartDepletion();
+        }
     }
 
     public void OnClick()
     {
-        Debug.Log(materialColor);
-        ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(true);
-        ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetPosition(transform.position + (Vector3.up * 5) + Vector3.right + Vector3.forward);
+        if (fieldState == "Active")
+        {
+            Debug.Log(materialColor);
+            ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(true);
+            ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetPosition(transform.position + (Vector3.up * 5) + Vector3.right + Vector3.forward);
+        }
     }
+
+
 }
