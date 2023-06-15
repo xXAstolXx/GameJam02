@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Resource : Buildings
 {
-    [HideInInspector]
-    public GameObject instantiatedBy;
 
     private UI_FindClass ui_FindClass;
 
     private void Awake()
     {
         ui_FindClass = new UI_FindClass();
-        instantiatedBy.GetComponent<ColoredCells>().SetField("Resource");
     }
 
     public void OnClick()

@@ -20,6 +20,7 @@ public class BuildingWindow : UI_Window
     public void BuildResource()
     {
         calledBy.GetComponent<ColoredCells>().CreateResource();
+        calledBy.GetComponent<ColoredCells>().SetField("Resource");
     }
 
     public void BuildTower()

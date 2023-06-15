@@ -51,16 +51,18 @@ public class PlayerScript : MonoBehaviour
             Ray ray = m_camera.ScreenPointToRay(mousePosition2D);
             RaycastHit hit;
 
-            Debug.Log("SHOOT");
             if(Physics.Raycast(ray, out hit))
             {
+                Debug.Log(hit.collider);
+
                 if(hit.collider == null)
                 {
                     Debug.Log("Miss");
                 }
 
-                if(hit.collider.GetComponent<ColoredCells>() != null)
+                if(hit.collider.gameObject.CompareTag("ColloredCell"))
                 {
+                    Debug.Log("HILFE");
                     hit.collider.GetComponent<ColoredCells>().OnClick();
 
                 }

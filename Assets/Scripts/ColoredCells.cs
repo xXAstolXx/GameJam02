@@ -34,7 +34,7 @@ public class ColoredCells : MonoBehaviour
     {
         ui_FindClass = new UI_FindClass();
 
-        SetField("Active");
+        SetField("Disabled");
     }
 
     private void ColorChangeOnAwake()
@@ -104,12 +104,12 @@ public class ColoredCells : MonoBehaviour
 
     public void CreateResource()
     {
-        Instantiate(resource, transform.position + (Vector3.up * 2), Quaternion.identity);
+        Instantiate(resource, this.gameObject.transform.position + (Vector3.up * 2), Quaternion.identity);
     }
 
     public void CreateTower()
     {
-        Instantiate(tower, transform.position + (Vector3.up * 2), Quaternion.identity);
+        Instantiate(tower, this.gameObject.transform.position + (Vector3.up * 2), Quaternion.identity);
     }
 
 

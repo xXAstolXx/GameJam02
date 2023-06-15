@@ -29,4 +29,12 @@ public class Tower : Buildings
         ui_FindClass.UI_WatchTowerCanvas.GetComponent<TowerWindow>().SetCalledBy(gameObject);
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ColloredCell") == true)
+        {
+            other.GetComponent<ColoredCells>().SetField("Active");
+        }
+    }
 }

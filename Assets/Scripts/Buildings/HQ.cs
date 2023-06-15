@@ -10,6 +10,16 @@ public class HQ : Buildings
     [SerializeField]
     private int damagePerHit = 1;
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ColloredCell") == true)
+        {
+            other.GetComponent<ColoredCells>().SetField("Active");
+        }
+
+    }
+
     public void GetHit()
     {
         HP -= damagePerHit;
