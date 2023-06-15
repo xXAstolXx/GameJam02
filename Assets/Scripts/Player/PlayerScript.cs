@@ -65,7 +65,12 @@ public class PlayerScript : MonoBehaviour
 
                 }
 
-                //todo colider buildings
+                //todo colider buildings, waiting for Buildings
+
+                //if(hit.collider.GetComponent<WatchTower>() != null)
+                //{
+                //    hit.collider.GetComponent<Buildings>().OnClick();
+                //}
             }
 
         }
@@ -73,6 +78,8 @@ public class PlayerScript : MonoBehaviour
         if (rightclick.WasPerformedThisFrame() == true)
         {
             ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(false);
+            ui_FindClass.UI_ResourceTowerCanvas.GetComponent<ResourceWindow>().SetVisibilty(false);
+            ui_FindClass.UI_WatchTowerCanvas.GetComponent<TowerWindow>().SetVisibilty(false);
         }
     }
 }

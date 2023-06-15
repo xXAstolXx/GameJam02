@@ -15,9 +15,16 @@ public class CoroutineDemo : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.DownArrow)) 
         {
-            Debug.Log("1");   
-            Debug.Log("2");   
-            Debug.Log("3");   
-        }   
+            StartCoroutine(CoroutineDemoTest()); 
+        }
+    }
+
+    IEnumerator CoroutineDemoTest()
+    {
+        Debug.Log("1");
+        yield return new WaitForSeconds(1);
+        Debug.Log("2");
+        yield return new WaitForSeconds(1);
+        Debug.Log("3");
     }
 }
