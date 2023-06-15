@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,9 +54,15 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("SHOOT");
             if(Physics.Raycast(ray, out hit))
             {
-                if(hit.collider != null)
+                if(hit.collider == null)
+                {
+                    Debug.Log("Miss");
+                }
+
+                if(hit.collider.GetComponent<ColoredCells>() != null)
                 {
                     hit.collider.GetComponent<ColoredCells>().OnClick();
+
                 }
             }
 
@@ -63,7 +70,7 @@ public class PlayerScript : MonoBehaviour
 
         if (rightclick.WasPerformedThisFrame() == true)
         {
-            ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(false);
+            ui_FindClass.UI_BuildingWindow.GetComponent<UI_Window>().SetVisibilty(false);
         }
     }
 }

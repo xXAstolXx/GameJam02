@@ -1,28 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BuildingWindow : MonoBehaviour
+public class BuildingWindow : UI_Window
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    private Button towerBtn;
+    private Button resBtn;
 
+    private void Awake()
+    {
+        towerBtn = GameObject.Find("TowerButton").GetComponent<Button>();
+        resBtn = GameObject.Find("ResourceButton").GetComponent<Button>();
+
+        towerBtn.onClick.AddListener(BuildTower);
+        resBtn.onClick.AddListener(BuildResource);
+    }
+    public void BuildResource()
+    {
+        Debug.Log("1");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BuildTower()
     {
-
-    }
-
-    public void ToggleVisibilty()
-    {
-        GetComponent<Canvas>().enabled = !GetComponent<Canvas>().enabled;
-    }
-
-    public void SetVisibilty(bool value)
-    {
-        GetComponent<Canvas>().enabled = value;
+        Debug.Log("2");
     }
 }
