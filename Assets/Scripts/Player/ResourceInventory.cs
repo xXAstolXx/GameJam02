@@ -1,18 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ResourceInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private int stoneAmount;
+    private int waterAmount;
+    private int woodAmount;
+
+    private TextMeshProUGUI stone;
+    private TextMeshProUGUI water;
+    private TextMeshProUGUI wood;
+
+
+    public void AddResource(string resource, int amount)
     {
-        
+        if(resource == "stone")
+        {
+            stoneAmount += amount;
+        }
+
+        if (resource == "water")
+        {
+            waterAmount += amount;
+        }
+
+        if (resource == "wood")
+        {
+            woodAmount += amount;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveResource(string resource, int amount) 
     {
-        
+        if(resource == "stone")
+        { 
+            stoneAmount -= amount;
+        }
+
+        if (resource == "water")
+        {
+            waterAmount -= amount;
+        }
+
+        if (resource == "wood")
+        {
+            woodAmount -= amount;
+        }
     }
 }
