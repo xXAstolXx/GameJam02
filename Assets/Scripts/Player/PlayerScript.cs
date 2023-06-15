@@ -64,13 +64,15 @@ public class PlayerScript : MonoBehaviour
                     hit.collider.GetComponent<ColoredCells>().OnClick();
 
                 }
+
+                //todo colider buildings
             }
 
         }
 
         if (rightclick.WasPerformedThisFrame() == true)
         {
-            ui_FindClass.UI_BuildingWindow.GetComponent<UI_Window>().SetVisibilty(false);
+            ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(false);
         }
     }
 }

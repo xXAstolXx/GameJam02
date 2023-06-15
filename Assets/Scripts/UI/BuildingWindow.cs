@@ -16,6 +16,7 @@ public class BuildingWindow : UI_Window
         towerBtn.onClick.AddListener(BuildTower);
         resBtn.onClick.AddListener(BuildResource);
     }
+
     public void BuildResource()
     {
         Debug.Log("1");

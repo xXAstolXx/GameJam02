@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum MaterialColor
@@ -57,5 +58,6 @@ public class ColoredCells : MonoBehaviour
     {
         Debug.Log(materialColor);
         ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(true);
+        ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetPosition(transform.position + (Vector3.up * 5) + Vector3.right + Vector3.forward);
     }
 }
