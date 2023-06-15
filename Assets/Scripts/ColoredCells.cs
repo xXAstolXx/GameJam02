@@ -14,7 +14,15 @@ public enum MaterialColor
 public class ColoredCells : MonoBehaviour
 {
     [SerializeField]
+    private GameObject tower;
+
+    [SerializeField]
+    private GameObject resource;
+
+
+    [SerializeField]
     private Material[] materials;
+
 
     public MaterialColor materialColor;
 
@@ -25,6 +33,8 @@ public class ColoredCells : MonoBehaviour
     private void Awake()
     {
         ui_FindClass = new UI_FindClass();
+
+        SetField("Active");
     }
 
     private void ColorChangeOnAwake()
@@ -88,7 +98,18 @@ public class ColoredCells : MonoBehaviour
             Debug.Log(materialColor);
             ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetVisibilty(true);
             ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetPosition(transform.position + (Vector3.up * 5) + Vector3.right + Vector3.forward);
+            ui_FindClass.UI_BuildingWindow.GetComponent<BuildingWindow>().SetCalledBy(gameObject);
         }
+    }
+
+    public void CreateResource()
+    {
+        Instantiate(resource, transform.position + (Vector3.up * 2), Quaternion.identity);
+    }
+
+    public void CreateTower()
+    {
+        Instantiate(tower, transform.position + (Vector3.up * 2), Quaternion.identity);
     }
 
 

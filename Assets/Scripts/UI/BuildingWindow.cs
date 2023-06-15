@@ -19,11 +19,11 @@ public class BuildingWindow : UI_Window
 
     public void BuildResource()
     {
-        Debug.Log("1");
+        calledBy.GetComponent<ColoredCells>().CreateResource();
     }
 
     public void BuildTower()
     {
-        Debug.Log("2");
+        calledBy.GetComponent<ColoredCells>().CreateTower();
     }
 }

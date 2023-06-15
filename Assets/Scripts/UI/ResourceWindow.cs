@@ -15,7 +15,7 @@ public class ResourceWindow : UI_Window
 
     public void DestroyResourceTower()
     {
-        Debug.Log("Destroy");
+        calledBy.GetComponent<Resource>().DeleteSelf();
     }
 
 }

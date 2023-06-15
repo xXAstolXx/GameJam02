@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Window : MonoBehaviour
 {
-
+    public GameObject calledBy;
 
     public void ToggleVisibilty()
     {
@@ -20,4 +21,10 @@ public class UI_Window : MonoBehaviour
     {
         transform.position = pos;
     }
+
+    public void SetCalledBy(GameObject obj)
+    {
+        calledBy = obj;
+    }
+
 }

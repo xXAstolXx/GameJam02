@@ -67,10 +67,17 @@ public class PlayerScript : MonoBehaviour
 
                 //todo colider buildings, waiting for Buildings
 
-                //if(hit.collider.GetComponent<WatchTower>() != null)
-                //{
-                //    hit.collider.GetComponent<Buildings>().OnClick();
-                //}
+                if (hit.collider.GetComponent<Tower>() != null)
+                {
+                    hit.collider.GetComponent<Tower>().OnClick();
+                }
+
+                if (hit.collider.GetComponent<Resource>() != null)
+                {
+                    hit.collider.GetComponent<Resource>().OnClick();
+                }
+
+
             }
 
         }
